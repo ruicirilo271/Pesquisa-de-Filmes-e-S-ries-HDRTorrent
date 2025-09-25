@@ -9,10 +9,18 @@
 </head>
 <body>
 <div class="container my-4 text-center">
+
+<!-- Menu de navegação -->
+<nav class="mb-3">
+    <a href="https://scraping-filmes-hdr-torrent.vercel.app/" class="btn btn-outline-light me-2" target="_blank">Filmes</a>
+    <a href="https://scraping-hdr-torrent-series.vercel.app/" class="btn btn-outline-light" target="_blank">Séries</a>
+</nav>
+
 <h1>Pesquisa de Filmes e Séries HDRTorrent</h1>
+
 <form method="POST" class="d-flex flex-column flex-sm-row justify-content-center my-3">
-<input class="form-control me-sm-2 mb-2 mb-sm-0" type="search" name="query" placeholder="Pesquisar filme ou série" value="{{ query }}">
-<button class="btn btn-primary" type="submit">Pesquisar</button>
+    <input class="form-control me-sm-2 mb-2 mb-sm-0" type="search" name="query" placeholder="Pesquisar filme ou série" value="{{ query }}">
+    <button class="btn btn-primary" type="submit">Pesquisar</button>
 </form>
 
 {% if filmes %}
@@ -39,6 +47,7 @@
 </div>
 </body>
 </html>
+
 
 
 
