@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ titulo }}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container text-center">
+<h1>{{ titulo }}</h1>
+<img src="{{ capa }}" alt="{{ titulo }}" class="capa-filme mb-3">
+
+{% if filme %}
+<h3>Downloads do Filme</h3>
+<div class="downloads">
+{% if downloads %}
+{% for d in downloads %}
+<a href="{{ d.url }}" target="_blank" class="download-btn">
+{{ d.titulo }}{% if d.qualidade %} - {{ d.qualidade }}{% endif %} - {{ d.texto }}
+</a>
+{% endfor %}
+{% else %}
+<p>Nenhum link de download encontrado.</p>
+{% endif %}
+</div>
+{% endif %}
+
+{% if series_exist %}
+<h3>Séries</h3>
+{% for s in series %}
+<h4>{{ s.season_title }}</h4>
+{% for ep in s.episodes %}
+<p>{{ ep.titulo }}</p>
+{% if ep.downloads %}
+{% for d in ep.downloads %}
+<a href="{{ d.url }}" target="_blank" class="download-btn">
+{{ d.titulo }}{% if d.qualidade %} - {{ d.qualidade }}{% endif %} - {{ d.texto }}
+</a>
+{% endfor %}
+{% else %}
+<p>Nenhum link de download para este episódio.</p>
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endif %}
+
+<br><a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Voltar</a>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
